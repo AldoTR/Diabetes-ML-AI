@@ -1,16 +1,17 @@
 import requests
-body = {
-    "gender": 1,
-    "age": 21.0,
+
+API_URL = 'http://127.0.0.1:8000/predict'
+
+data = {
+    "gender": 0,  
+    "age": 54.0,
     "hypertension": 0,
     "heart_disease": 0,
-    "smoking_history": 0,
-    "bmi": 26.1,
-    "HbA1c_level": 5.0,
-    "blood_glucose_level": 85,
-    "diabetes": 0
-    }
-response = requests.post(url = 'http://127.0.0.1:8000/score',
-              json = body)
-print (response.json())
-# output: {'score': 0.866490130600765}
+    "smoking_history": 0,  
+    "bmi": 27.32,
+    "HbA1c_level": 6.6,
+    "blood_glucose_level": 80
+}
+
+response = requests.post(API_URL, json=data)
+print(response.json())
