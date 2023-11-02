@@ -28,8 +28,8 @@ metadata:
   name: diabetes-model-service
 spec:
   ports:
-  - port: 8501
-    targetPort: 8501
+  - port: 80
+    targetPort: 80
   selector:
     app: diabetes-model-server
   type: LoadBalancer
