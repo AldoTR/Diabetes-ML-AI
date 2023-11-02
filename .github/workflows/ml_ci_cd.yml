@@ -1,9 +1,9 @@
 name: Modelops deploy
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   repository_dispatch:
     types: [ml_ci_cd]
 jobs:
@@ -20,12 +20,14 @@ jobs:
       run: pip install -r requirements.txt
 # DESCARGA DATASET
     - name: download dataset
-      run: wget -O data/original-diabetes-dataset-prediction.csv ${{github.event.client_payload.dataseturl}}
+      run: wget -O data/pndb.csv ${{github.event.client_payload.dataseturl}}
     - name: cat dataset
-      run: cat data/original-diabetes-dataset-prediction.csv
+      run: cat data/pndb.csv
  #EJECUTA EL MODELO 
     - name: train model
-      run: python model/trainning.py
+      run: python model/train.py
+
+
 
 #DOCKER BUILD
     - name: docker build
@@ -66,4 +68,4 @@ jobs:
       with:
         namespace: ${{secrets.OKTETO_NAMESPACE }}
         manifest: manifests/k8s.yml
-        tag: ${{ secrets.DOCKER_USERNAME }}/${{secrets.MODEL_NAME}}:${{ github.sha }}
+        tag: ${{ secrets.DOCKER_USERNAME }}/${{secrets.MODEL_NAME}}:latest
