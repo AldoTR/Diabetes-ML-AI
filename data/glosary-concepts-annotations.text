@@ -1,0 +1,16 @@
+gender colums:
+
+0 = female, femenino
+1 = male, masculino
+
+bmi = índice de masa corporal
+HbA1c = prueba de hemoglobina glicosilada
+
+smoking clasification:
+
+    'No Info': 0,
+    'never': 1,
+    'ever': 2,
+    'former': 3,
+    'not current': 4,
+    'current': 5
