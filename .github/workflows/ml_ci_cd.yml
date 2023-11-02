@@ -20,9 +20,9 @@ jobs:
       run: pip install -r requirements.txt
 # DESCARGA DATASET
     - name: download dataset
-      run: wget -O data/pndb.csv ${{github.event.client_payload.dataseturl}}
+      run: wget -O data/original-diabetes-dataset-prediction.csv ${{github.event.client_payload.dataseturl}}
     - name: cat dataset
-      run: cat data/pndb.csv
+      run: cat data/original-diabetes-dataset-prediction.csv
  #EJECUTA EL MODELO 
     - name: train model
       run: python model/trainning.py
