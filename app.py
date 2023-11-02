@@ -20,14 +20,14 @@ app.add_middleware(
 model = load(pathlib.Path('model/diabetes-prediction-model.joblib'))
 
 class InputData(BaseModel):
-    gender: int
-    age: float
-    hypertension: int
-    heart_disease: int
-    smoking_history: int  
-    bmi: float
-    HbA1c_level: float
-    blood_glucose_level: float
+    gender:int=0
+    age:float=54.0
+    hypertension:int=0
+    heart_disease:int=0
+    smoking_history:int=0  
+    bmi:float=27.32
+    HbA1c_level:float=6.6
+    blood_glucose_level:float=80
 
 class OutputData(BaseModel):
     probability: float
