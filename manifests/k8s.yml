@@ -16,7 +16,7 @@ spec:
       containers:
       - name: model-diabetes
         #image: gcr.io/tensorflow-serving/resnet 
-        image: docker.io/aldotr/diabetes-model-ai:latest
+        image: docker.io/aldotr/diabetes-model-ai:{github.sha}
         ports:
         - containerPort: 80
 ---
